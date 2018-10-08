@@ -2906,18 +2906,6 @@ condition](#safe-assignment-in-condition).
       def self.some_other_method
         # body omitted
       end
-
-      # Also possible and convenient when you
-      # have to define many class methods.
-      class << self
-        def first_method
-          # body omitted
-        end
-
-        def second_method_etc
-          # body omitted
-        end
-      end
     end
     ```
 
@@ -2986,6 +2974,8 @@ condition](#safe-assignment-in-condition).
       include Mononymous
     end
     ```
+    
+  **alias executed when source file read, alias_method executed at run time.**
 
   * <a name="class-and-self"></a>
     When class (or module) methods call other such methods, omit the use of a
