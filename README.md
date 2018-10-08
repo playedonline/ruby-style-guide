@@ -584,35 +584,35 @@
       * Do not use `::` for regular method invocation.
         <sup>[[link](#double-colons)]</sup>
 
-    ```ruby
-    # bad
-    SomeClass::some_method
-    some_object::some_method
+        ```ruby
+        # bad
+        SomeClass::some_method
+        some_object::some_method
 
-    # good
-    SomeClass.some_method
-    some_object.some_method
-    SomeModule::SomeClass::SOME_CONST
-    SomeModule::SomeClass()
-    ```
+        # good
+        SomeClass.some_method
+        some_object.some_method
+        SomeModule::SomeClass::SOME_CONST
+        SomeModule::SomeClass()
+        ```
 
-  * <a name="colon-method-definition"></a>
-    Do not use `::` to define class methods.
-    <sup>[[link](#colon-method-definition)]</sup>
+      * <a name="colon-method-definition"></a>
+        Do not use `::` to define class methods.
+        <sup>[[link](#colon-method-definition)]</sup>
 
-    ```ruby
-    # bad
-    class Foo
-      def self::some_method
-      end
-    end
+        ```ruby
+        # bad
+        class Foo
+          def self::some_method
+          end
+        end
 
-    # good
-    class Foo
-      def self.some_method
-      end
-    end
-    ```
+        # good
+        class Foo
+          def self.some_method
+          end
+        end
+        ```
 
   * <a name="method-parens"></a>
     Use `def` with parentheses when there are parameters. Omit the
@@ -1163,8 +1163,8 @@
     end
     ```
 
-Note that there is an exception to this rule, namely [safe assignment in
-condition](#safe-assignment-in-condition).
+    Note that there is an exception to this rule, namely [safe assignment in
+    condition](#safe-assignment-in-condition).
 
   * <a name="no-multiline-while-do"></a>
     Do not use `while/until condition do` for multi-line `while/until`.
@@ -2975,7 +2975,7 @@ condition](#safe-assignment-in-condition).
     end
     ```
     
-  **alias executed when source file read, alias_method executed at run time.**
+    **alias executed when source file read, alias_method executed at run time.**
 
   * <a name="class-and-self"></a>
     When class (or module) methods call other such methods, omit the use of a
@@ -3967,29 +3967,29 @@ condition](#safe-assignment-in-condition).
         delimiter for `%r` literals.
       - `()` for all other literals (e.g. `%s`, `%x`)
 
-    ```ruby
-    # bad
-    %q{"Test's king!", John said.}
+      ```ruby
+      # bad
+      %q{"Test's king!", John said.}
 
-    # good
-    %q("Test's king!", John said.)
+      # good
+      %q("Test's king!", John said.)
 
-    # bad
-    %w(one two three)
-    %i(one two three)
+      # bad
+      %w(one two three)
+      %i(one two three)
 
-    # good
-    %w[one two three]
-    %i[one two three]
+      # good
+      %w[one two three]
+      %i[one two three]
 
-    # bad
-    %r((\w+)-(\d+))
-    %r{\w{1,2}\d{2,5}}
+      # bad
+      %r((\w+)-(\d+))
+      %r{\w{1,2}\d{2,5}}
 
-    # good
-    %r{(\w+)-(\d+)}
-    %r|\w{1,2}\d{2,5}|
-    ```
+      # good
+      %r{(\w+)-(\d+)}
+      %r|\w{1,2}\d{2,5}|
+      ```
 
 ## Metaprogramming
 
