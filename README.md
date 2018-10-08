@@ -3549,49 +3549,24 @@ condition](#safe-assignment-in-condition).
 
     # good
     email_with_name = "#{user.name} <#{user.email}>"
-
-    # good
-    email_with_name = format('%s <%s>', user.name, user.email)
     ```
 
   * <a name="consistent-string-literals"></a>
-    Adopt a consistent string literal quoting style. There are two popular
-    styles in the Ruby community, both of which are considered good&mdash;single
-    quotes by default (Option A) and double quotes by default (Option B).
-    <sup>[[link](#consistent-string-literals)]</sup>
+    Prefer single-quoted strings when you don't need
+    string interpolation or special symbols such as `\t`, `\n`, `'`,
+    etc.
 
-      * **(Option A)** Prefer single-quoted strings when you don't need
-        string interpolation or special symbols such as `\t`, `\n`, `'`,
-        etc.
+    ```ruby
+    # bad
+    name = "Bozhidar"
 
-        ```ruby
-        # bad
-        name = "Bozhidar"
+    name = 'De\'Andre'
 
-        name = 'De\'Andre'
+    # good
+    name = 'Bozhidar'
 
-        # good
-        name = 'Bozhidar'
-
-        name = "De'Andre"
-        ```
-
-      * **(Option B)** Prefer double-quotes unless your string literal
-        contains `"` or escape characters you want to suppress.
-
-        ```ruby
-        # bad
-        name = 'Bozhidar'
-
-        sarcasm = "I \"like\" it."
-
-        # good
-        name = "Bozhidar"
-
-        sarcasm = 'I "like" it.'
-        ```
-
-    The string literals in this guide are aligned with the first style.
+    name = "De'Andre"
+    ```
 
   * <a name="no-character-literals"></a>
     Don't use the character literal syntax `?x`. Since Ruby 1.9 it's basically
@@ -3800,10 +3775,6 @@ condition](#safe-assignment-in-condition).
     ```
 
 ## Regular Expressions
-
-> Some people, when confronted with a problem, think
-> "I know, I'll use regular expressions." Now they have two problems.<br>
-> -- Jamie Zawinski
 
   * <a name="no-regexp-for-plaintext"></a>
     Don't use regular expressions if you just need plain text search in string:
