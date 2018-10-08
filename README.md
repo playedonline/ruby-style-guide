@@ -702,7 +702,7 @@
 
           # body omitted
         end
-      ```
+        ```
 
     Can omit parentheses for
 
@@ -1093,9 +1093,6 @@
 
     # good
     do_something if some_condition
-
-    # another good option
-    some_condition && do_something
     ```
 
   * <a name="no-multiline-if-modifiers"></a>
@@ -1128,24 +1125,6 @@
 
     # good
     do_something if some_condition && other_condition
-    ```
-
-  * <a name="unless-for-negatives"></a>
-    Favor `unless` over `if` for negative conditions (or control flow `||`).
-    <sup>[[link](#unless-for-negatives)]</sup>
-
-    ```ruby
-    # bad
-    do_something if !some_condition
-
-    # bad
-    do_something if not some_condition
-
-    # good
-    do_something unless some_condition
-
-    # another good option
-    some_condition || do_something
     ```
 
   * <a name="no-else-with-unless"></a>
@@ -1223,18 +1202,6 @@ condition](#safe-assignment-in-condition).
 
     # good
     do_something while some_condition
-    ```
-
-  * <a name="until-for-negatives"></a>
-    Favor `until` over `while` for negative conditions.
-    <sup>[[link](#until-for-negatives)]</sup>
-
-    ```ruby
-    # bad
-    do_something while !some_condition
-
-    # good
-    do_something until some_condition
     ```
 
   * <a name="infinite-loop"></a>
@@ -1461,12 +1428,6 @@ condition](#safe-assignment-in-condition).
       # some code
     end
 
-    # good (MRI would still complain, but RuboCop won't)
-    if (v = array.grep(/foo/))
-      do_something(v)
-      # some code
-    end
-
     # good
     v = array.grep(/foo/)
     if v
@@ -1610,8 +1571,8 @@ condition](#safe-assignment-in-condition).
     ```
 
   * <a name="always-warn-at-runtime"></a>
-    Always run the Ruby interpreter with the `-w` option so it will warn you if
-    you forget either of the rules above!
+    ** Always run the Ruby interpreter with the `-w` option so it will warn you if
+    you forget either of the rules above! **
     <sup>[[link](#always-warn-at-runtime)]</sup>
 
   * <a name="no-nested-methods"></a>
@@ -1746,14 +1707,6 @@ condition](#safe-assignment-in-condition).
     end
 
     # good
-    result = hash.map { |_k, v| v + 1 }
-
-    def something(x)
-      _unused_var, used_var = something_else(x)
-      # some code
-    end
-
-    # good
     result = hash.map { |_, v| v + 1 }
 
     def something(x)
@@ -1801,18 +1754,6 @@ condition](#safe-assignment-in-condition).
     # => '20 10'
     ```
 
-  * <a name="named-format-tokens"></a>
-    When using named format string tokens, favor `%<name>s` over `%{name}` because it encodes information about the type of the value.
-    <sup>[[link]](#named-format-tokens)</sup>
-
-    ```ruby
-    # bad
-    format('Hello, %{name}', name: 'John')
-
-    # good
-    format('Hello, %<name>s', name: 'John')
-    ```
-
   * <a name="array-join"></a>
     Favor the use of `Array#join` over the fairly cryptic `Array#*` with
     a string argument.
@@ -1826,24 +1767,6 @@ condition](#safe-assignment-in-condition).
     # good
     %w[one two three].join(', ')
     # => 'one, two, three'
-    ```
-
-  * <a name="array-coercion"></a>
-    Use `Array()` instead of explicit `Array` check or `[*var]`, when dealing
-    with a variable you want to treat as an Array, but you're not certain it's an
-    array.
-    <sup>[[link](#array-coercion)]</sup>
-
-    ```ruby
-    # bad
-    paths = [paths] unless paths.is_a? Array
-    paths.each { |path| do_something(path) }
-
-    # bad (always creates a new Array instance)
-    [*paths].each { |path| do_something(path) }
-
-    # good (and a bit more readable)
-    Array(paths).each { |path| do_something(path) }
     ```
 
   * <a name="ranges-or-between"></a>
