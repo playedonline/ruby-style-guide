@@ -4144,12 +4144,12 @@ condition](#safe-assignment-in-condition).
     <sup>[[link](#no-optional-hash-params)]</sup>
 
   * <a name="short-methods"></a>
-    Avoid methods longer than 10 LOC (lines of code). Ideally, most methods will
-    be shorter than 5 LOC. Empty lines do not contribute to the relevant LOC.
+    **Avoid methods longer than 10 LOC (lines of code). Ideally, most methods will
+    be shorter than 5 LOC.** Empty lines do not contribute to the relevant LOC.
     <sup>[[link](#short-methods)]</sup>
 
   * <a name="too-many-params"></a>
-    Avoid parameter lists longer than three or four parameters.
+    **Avoid parameter lists longer than three or four parameters.**
     <sup>[[link](#too-many-params)]</sup>
 
   * <a name="private-global-methods"></a>
@@ -4198,7 +4198,7 @@ condition](#safe-assignment-in-condition).
     <sup>[[link](#no-param-mutations)]</sup>
 
   * <a name="three-is-the-number-thou-shalt-count"></a>
-    Avoid more than three levels of block nesting.
+    **Avoid more than three levels of block nesting.**
     <sup>[[link](#three-is-the-number-thou-shalt-count)]</sup>
 
   * <a name="be-consistent"></a>
@@ -4216,8 +4216,8 @@ this guide.
 
 ### RuboCop
 
-[RuboCop][] is a Ruby code style
-checker based on this style guide. RuboCop already covers a
+**[RuboCop][] is a Ruby code style
+checker based on this style guide.** RuboCop already covers a
 significant portion of the Guide, supports both MRI 1.9 and MRI 2.0
 and has good Emacs integration.
 
@@ -4227,50 +4227,7 @@ and has good Emacs integration.
 [partially based](http://confluence.jetbrains.com/display/RUBYDEV/RubyMine+Inspections)
 on this guide.
 
-# Contributing
-
-The guide is still a work in progress&mdash;some rules are lacking examples,
-some rules don't have examples that illustrate them clearly enough. Improving
-such rules is a great (and simple way) to help the Ruby community!
-
-In due time these issues will (hopefully) be addressed&mdash;just keep them in
-mind for now.
-
-Nothing written in this guide is set in stone. It's my desire to work
-together with everyone interested in Ruby coding style, so that we could
-ultimately create a resource that will be beneficial to the entire Ruby
-community.
-
-Feel free to open tickets or send pull requests with improvements. Thanks in
-advance for your help!
-
-You can also support the project (and RuboCop) with financial
-contributions via [Patreon](https://www.patreon.com/bbatsov).
-
-## How to Contribute?
-
-It's easy, just follow the [contribution guidelines](https://github.com/rubocop-hq/ruby-style-guide/blob/master/CONTRIBUTING.md).
-
 # License
 
 ![Creative Commons License](http://i.creativecommons.org/l/by/3.0/88x31.png)
 This work is licensed under a [Creative Commons Attribution 3.0 Unported License](http://creativecommons.org/licenses/by/3.0/deed.en_US)
-
-# Spread the Word
-
-A community-driven style guide is of little use to a community that
-doesn't know about its existence. Tweet about the guide, share it with
-your friends and colleagues. Every comment, suggestion or opinion we
-get makes the guide just a little bit better. And we want to have the
-best possible guide, don't we?
-
-Cheers,<br>
-[Bozhidar](https://twitter.com/bbatsov)
-
-[PEP-8]: https://www.python.org/dev/peps/pep-0008/
-[rails-style-guide]: https://github.com/rubocop-hq/rails-style-guide
-[pickaxe]: https://pragprog.com/book/ruby4/programming-ruby-1-9-2-0
-[trpl]: http://www.amazon.com/Ruby-Programming-Language-David-Flanagan/dp/0596516177
-[Pandoc]: http://pandoc.org/
-[RuboCop]: https://github.com/rubocop-hq/rubocop
-[yard]: https://yardoc.org/
