@@ -1,77 +1,3 @@
-# Prelude
-
-> Role models are important. <br>
-> -- Officer Alex J. Murphy / RoboCop
-
-One thing has always bothered me as a Ruby developer&mdash;Python developers
-have a great programming style reference ([PEP-8][]) and we never got an
-official guide, documenting Ruby coding style and best practices. And I do
-believe that style matters. I also believe that a great hacker community, such
-as Ruby has, should be quite capable of producing this coveted document.
-
-This guide started its life as our internal company Ruby coding guidelines
-(written by yours truly). At some point I decided that the work I was doing
-might be interesting to members of the Ruby community in general and that the
-world had little need for another internal company guideline. But the world
-could certainly benefit from a community-driven and community-sanctioned set of
-practices, idioms and style prescriptions for Ruby programming.
-
-Since the inception of the guide I've received a lot of feedback from members of
-the exceptional Ruby community around the world. Thanks for all the suggestions
-and the support! Together we can make a resource beneficial to each and every
-Ruby developer out there.
-
-By the way, if you're into Rails you might want to check out the complementary
-[Ruby on Rails Style Guide][rails-style-guide].
-
-# The Ruby Style Guide
-
-This Ruby style guide recommends best practices so that real-world Ruby
-programmers can write code that can be maintained by other real-world Ruby
-programmers. A style guide that reflects real-world usage gets used, while a
-style guide that holds to an ideal that has been rejected by the people it is
-supposed to help risks not getting used at all&mdash;no matter how good it is.
-
-The guide is separated into several sections of related rules. I've tried to add
-the rationale behind the rules (if it's omitted I've assumed it's pretty
-obvious).
-
-I didn't come up with all the rules out of nowhere&mdash;they are mostly
-based on my extensive career as a professional software engineer,
-feedback and suggestions from members of the Ruby community and
-various highly regarded Ruby programming resources, such as
-["Programming Ruby"][pickaxe] and
-["The Ruby Programming Language"][trpl].
-
-There are some areas in which there is no clear consensus in the Ruby community
-regarding a particular style (like string literal quoting, spacing inside hash
-literals, dot position in multi-line method chaining, etc.). In such scenarios
-all popular styles are acknowledged and it's up to you to pick one and apply it
-consistently.
-
-This style guide evolves over time as additional conventions are
-identified and past conventions are rendered obsolete by changes in
-Ruby itself.
-
-You can generate a PDF or an HTML copy of this guide using
-[Pandoc][].
-
-[RuboCop][] is a code code analyzer (linter) and formatter, based on this
-style guide.
-
-Translations of the guide are available in the following languages:
-
-  * [Chinese Simplified](https://github.com/JuanitoFatas/ruby-style-guide/blob/master/README-zhCN.md)
-  * [Chinese Traditional](https://github.com/JuanitoFatas/ruby-style-guide/blob/master/README-zhTW.md)
-  * [Egyptian Arabic](https://github.com/HassanTC/ruby-style-guide/blob/master/README-EgAr.md)
-  * [French](https://github.com/gauthier-delacroix/ruby-style-guide/blob/master/README-frFR.md)
-  * [Japanese](https://github.com/fortissimo1997/ruby-style-guide/blob/japanese/README.ja.md)
-  * [Korean](https://github.com/dalzony/ruby-style-guide/blob/master/README-koKR.md)
-  * [Portuguese (pt-BR)](https://github.com/rubensmabueno/ruby-style-guide/blob/master/README-PT-BR.md)
-  * [Russian](https://github.com/arbox/ruby-style-guide/blob/master/README-ruRU.md)
-  * [Spanish](https://github.com/alemohamad/ruby-style-guide/blob/master/README-esLA.md)
-  * [Vietnamese](https://github.com/CQBinh/ruby-style-guide/blob/master/README-viVN.md)
-
 ## Table of Contents
 
   * [Source Code Layout](#source-code-layout)
@@ -93,11 +19,6 @@ Translations of the guide are available in the following languages:
   * [Tools](#tools)
 
 ## Source Code Layout
-
-> Nearly everybody is convinced that every style but their own is
-> ugly and unreadable. Leave out the "but their own" and they're
-> probably right... <br>
-> -- Jerry Coffin (on indentation)
 
   * <a name="utf-8"></a>
     Use `UTF-8` as the source file encoding.
@@ -161,9 +82,6 @@ Translations of the guide are available in the following languages:
     class FooError < StandardError
     end
 
-    # okish
-    class FooError < StandardError; end
-
     # good
     FooError = Class.new(StandardError)
     ```
@@ -178,15 +96,6 @@ Translations of the guide are available in the following languages:
     ```ruby
     # bad
     def too_much; something; something_else; end
-
-    # okish - notice that the first ; is required
-    def no_braces_method; body end
-
-    # okish - notice that the second ; is optional
-    def no_braces_method; body; end
-
-    # okish - valid syntax, but no ; makes it kind of hard to read
-    def some_method() body end
 
     # good
     def some_method
@@ -262,18 +171,9 @@ Translations of the guide are available in the following languages:
     `{` and `}` deserve a bit of clarification, since they are used
     for block and hash literals, as well as string interpolation.
 
-    For hash literals two styles are considered acceptable.
-    The first variant is slightly more readable (and arguably more
-    popular in the Ruby community in general). The second variant has
-    the advantage of adding visual difference between block and hash
-    literals. Whichever one you pick&mdash;apply it consistently.
-
     ```ruby
     # good - space after { and before }
     { one: 1, two: 2 }
-
-    # good - no space after { and before }
-    {one: 1, two: 2}
     ```
 
     With interpolated expressions, there should be no padded-spacing inside the braces.
@@ -383,24 +283,6 @@ Translations of the guide are available in the following languages:
              else
                calc_something_else
              end
-
-    # good (and a bit more width efficient)
-    kind =
-      case year
-      when 1850..1889 then 'Blues'
-      when 1890..1909 then 'Ragtime'
-      when 1910..1929 then 'New Orleans Jazz'
-      when 1930..1939 then 'Swing'
-      when 1940..1950 then 'Bebop'
-      else 'Jazz'
-      end
-
-    result =
-      if some_cond
-        calc_something
-      else
-        calc_something_else
-      end
     ```
 
   * <a name="empty-lines-between-methods"></a>
@@ -563,25 +445,10 @@ Translations of the guide are available in the following languages:
     ```
 
   * <a name="consistent-multi-line-chains"></a>
-    Adopt a consistent multi-line method chaining style. There are two popular
-    styles in the Ruby community, both of which are considered
-    good&mdash;leading `.` (Option A) and trailing `.` (Option B).
+    Adopt a consistent multi-line method chaining style.
     <sup>[[link](#consistent-multi-line-chains)]</sup>
 
-      * **(Option A)** When continuing a chained method invocation on
-        another line keep the `.` on the second line.
-
-        ```ruby
-        # bad - need to consult first line to understand second line
-        one.two.three.
-          four
-
-        # good - it's immediately clear what's going on the second line
-        one.two.three
-          .four
-        ```
-
-      * **(Option B)** When continuing a chained method invocation on another line,
+      * When continuing a chained method invocation on another line,
         include the `.` on the first line to indicate that the
         expression continues.
 
@@ -594,9 +461,6 @@ Translations of the guide are available in the following languages:
         one.two.three.
           four
         ```
-
-    A discussion on the merits of both alternative styles can be found
-    [here](https://github.com/rubocop-hq/ruby-style-guide/pull/176).
 
   * <a name="no-double-indent"></a>
     Align the parameters of a method call if they span more than one
@@ -627,16 +491,6 @@ Translations of the guide are available in the following languages:
                      subject: 'Important message',
                      body: source.text)
     end
-
-    # good (normal indent)
-    def send_mail(source)
-      Mailer.deliver(
-        to: 'bob@example.com',
-        from: 'us@example.com',
-        subject: 'Important message',
-        body: source.text
-      )
-    end
     ```
 
   * <a name="align-multiline-arrays"></a>
@@ -653,11 +507,6 @@ Translations of the guide are available in the following languages:
       Spam Spam Spam Spam Spam Spam Spam Spam
       Baked beans Spam Spam Spam Spam Spam
     ]
-
-    # good
-    menu_item =
-      %w[Spam Spam Spam Spam Spam Spam Spam Spam
-       Baked beans Spam Spam Spam Spam Spam]
     ```
 
   * <a name="underscores-in-numerics"></a>
