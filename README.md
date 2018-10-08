@@ -2243,14 +2243,8 @@ condition](#safe-assignment-in-condition).
 
 ## Comments
 
-> Good code is its own best documentation. As you're about to add a
-> comment, ask yourself, "How can I improve the code so that this
-> comment isn't needed?" Improve the code and then document it to make
-> it even clearer. <br>
-> -- Steve McConnell
-
   * <a name="no-comments"></a>
-    Write self-documenting code and ignore the rest of this section. Seriously!
+    **Write self-documenting code and ignore the rest of this section. Seriously!**
     <sup>[[link](#no-comments)]</sup>
 
   * <a name="english-comments"></a>
@@ -2280,13 +2274,14 @@ condition](#safe-assignment-in-condition).
     Keep existing comments up-to-date. An outdated comment is worse than no
     comment at all.
     <sup>[[link](#comment-upkeep)]</sup>
-
-> Good code is like a good joke: it needs no explanation. <br>
-> &mdash; old programmers maxim, through [Russ Olsen](http://eloquentruby.com/blog/2011/03/07/good-code-and-good-jokes/)
+    
+  * <a name="no-comments-again"></a>
+    **Write self-documenting code and ignore the rest of this section. Seriously!**
+    <sup>[[link](#no-comments-again)]</sup>
 
   * <a name="refactor-dont-comment"></a>
     Avoid writing comments to explain bad code. Refactor the code to make it
-    self-explanatory. ("Do or do not&mdash;there is no try." Yoda)
+    self-explanatory.
     <sup>[[link](#refactor-dont-comment)]</sup>
 
 ### Comment Annotations
