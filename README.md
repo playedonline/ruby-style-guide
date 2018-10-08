@@ -1571,8 +1571,8 @@ condition](#safe-assignment-in-condition).
     ```
 
   * <a name="always-warn-at-runtime"></a>
-    ** Always run the Ruby interpreter with the `-w` option so it will warn you if
-    you forget either of the rules above! **
+    **Always run the Ruby interpreter with the `-w` option so it will warn you if
+    you forget either of the rules above!**
     <sup>[[link](#always-warn-at-runtime)]</sup>
 
   * <a name="no-nested-methods"></a>
@@ -1961,10 +1961,6 @@ condition](#safe-assignment-in-condition).
 
 ## Naming
 
-> The only real difficulties in programming are cache invalidation and
-> naming things. <br>
-> -- Phil Karlton
-
   * <a name="english-identifiers"></a>
     Name identifiers in English.
     <sup>[[link](#english-identifiers)]</sup>
@@ -2020,7 +2016,7 @@ condition](#safe-assignment-in-condition).
 
     some_var_1 = 1
 
-    var_10  = 10
+    var_10 = 10
 
     def some_method_1
       # some code
@@ -2031,13 +2027,12 @@ condition](#safe-assignment-in-condition).
 
     some_var1 = 1
 
-    var10    = 10
+    var10 = 10
 
     def some_method1
       # some code
     end
     ```
-
 
   * <a name="camelcase-classes"></a>
     Use `CamelCase` for classes and modules.  (Keep acronyms like HTTP, RFC, XML
@@ -2149,8 +2144,8 @@ condition](#safe-assignment-in-condition).
   * <a name="dangerous-method-bang"></a>
     The names of potentially *dangerous* methods (i.e. methods that modify
     `self` or the arguments, `exit!` (doesn't run the finalizers like `exit`
-    does), etc.) should end with an exclamation mark if there exists a safe
-    version of that *dangerous* method.
+    does), etc.) should end with an exclamation mark **if there exists a safe
+    version** of that *dangerous* method.
     <sup>[[link](#dangerous-method-bang)]</sup>
 
     ```ruby
