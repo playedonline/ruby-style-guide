@@ -3281,34 +3281,6 @@ condition](#safe-assignment-in-condition).
     hash = Hash.new(0)
     ```
 
-  * <a name="percent-w"></a>
-    Prefer `%w` to the literal array syntax when you need an array of words
-    (non-empty strings without spaces and special characters in them).  Apply this
-    rule only to arrays with two or more elements.
-    <sup>[[link](#percent-w)]</sup>
-
-    ```ruby
-    # bad
-    STATES = ['draft', 'open', 'closed']
-
-    # good
-    STATES = %w[draft open closed]
-    ```
-
-  * <a name="percent-i"></a>
-    Prefer `%i` to the literal array syntax when you need an array of symbols
-    (and you don't need to maintain Ruby 1.9 compatibility). Apply this rule only
-    to arrays with two or more elements.
-    <sup>[[link](#percent-i)]</sup>
-
-    ```ruby
-    # bad
-    STATES = [:draft, :open, :closed]
-
-    # good
-    STATES = %i[draft open closed]
-    ```
-
   * <a name="no-trailing-array-commas"></a>
     Avoid comma after the last item of an `Array` or `Hash` literal, especially
     when the items are not on separate lines.
@@ -3524,6 +3496,12 @@ condition](#safe-assignment-in-condition).
       else
         @awesome_things
       end
+    end
+    
+    # good
+    def awesome_things(index: nil)
+      return @awesome_things[index] if index && @awesome_things
+      @awesome_things
     end
     ```
 ## Numbers
